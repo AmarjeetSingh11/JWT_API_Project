@@ -8,9 +8,9 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-connectToMongoDB(process.env.DB_URl).then(
+connectToMongoDB(process.env.DB_URL).then(
     () => console.log("MongoDB is connected")
-);
+).catch(err => console.error("MongoDB connection error:", err));
 
 //Middleware
 app.use(bodyParse.json());
